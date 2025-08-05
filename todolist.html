@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="shortcut icon" type="image/png" href="list.png" />
+  <link rel="stylesheet" href="asset/todo.css">
+  <title>To-do List</title>
+</head>
+<body>
+
+  <header>
+    
+    <h2><i class="fas fa-clipboard-check"></i>DoLearn - To-do List</h2>
+    <nav class="navbar">
+      <ul>
+        <li><a href="flashcards.html">Flashcards</a></li>
+        <li><a href="timer.html">Nhắc nhở &amp; Hẹn giờ</a></li>
+        <li><a href="todolist.html" class="active">To-do List</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div id="header">
+        <div class="user_input">
+          <input type="text" id="input" placeholder="Thêm ghi chú"><button id="add_item">Submit</button>
+        </div>
+      </div>
+    </div>
+    
+    <section>
+      <div class="container">
+        <div id="to_do_list"></div>
+      </div>
+    </section>
+  </main>  
+
+  <script src="asset/todo.js"></script>
+</body>
+
+</html>

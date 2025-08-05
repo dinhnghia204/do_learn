@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nhắc nhở &amp; Hẹn giờ</title>
+  <link rel="stylesheet" href="asset/timer.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-center">
+      <h1>DoLearn - Nhắc nhở &amp; Hẹn giờ</h1>
+      <nav class="navbar">
+        <ul>
+          <li><a href="flashcards.html">Flashcards</a></li>
+          <li><a href="timer.html" class="active">Nhắc nhở &amp; Hẹn giờ</a></li>
+          <li><a href="todolist.html">To-do List</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <!-- Phần Nhắc nhở -->
+    <div class="card">
+      <h2>Nhắc nhở</h2>
+      <label for="reminder-text">Nội dung:</label>
+      <input type="text" id="reminder-text" placeholder="Viết gì đó..."/>
+      <label for="reminder-time">Thời gian (HH:MM):</label>
+      <input type="time" id="reminder-time"/>
+      <button id="add-reminder">Thêm nhắc nhở</button>
+
+      <h3>Danh sách nhắc nhở:</h3>
+      <ul id="reminder-list"></ul>
+    </div>
+
+    <!-- Phần Hẹn giờ -->
+    <div class="card">
+      <h2>Hẹn giờ (Timer)</h2>
+      <div class="timer-display" id="timer-display">00:00:00</div>
+      <div class="btn-group">
+        <button id="start-timer">Start</button>
+        <button id="pause-timer">Pause</button>
+        <button id="reset-timer">Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Mã cho phần Nhắc nhở ---
+    const REMINDER_KEY = 'dolearn_reminders';
+    const remText = document.getElementById('reminder-text');
+    const remTime = document.getElementById('reminder-time');
+    const addBtn = document.getElementById('add-reminder');
+    const remList = document.getElementById('reminder-list');
+    let reminders = [];
+
+    function saveReminders() {
+      localStorage.setItem(REMINDER_KEY, JSON.stringify(reminders));
+    }
+    function loadReminders() {
+      const data = localStorage.getItem(REMINDER_KEY);
+      reminders = data ? JSON.parse(data) : [];
+    }
+
+    function renderReminders() {
+      remList.innerHTML = '';
+      reminders.sort((a,b) => a.time.localeCompare(b.time));
+      reminders.forEach(r => {
+        const div = document.createElement('div');
+        div.className = 'reminder-card';
+        div.innerHTML = `
+          <span style="color:#222;font-size:1em;">${r.time} — ${r.text}</span>
+          <button data-id="${r.id}">Xóa</button>
+        `;
+        remList.appendChild(div);
+      });
+    }
+
+    addBtn.addEventListener('click', () => {
+      const text = remText.value.trim();
+      const time = remTime.value;
+      if (!text || !time) return alert('Vui lòng nhập đầy đủ!');
+      const id = Date.now();
+      reminders.push({ id, text, time });
+      saveReminders();
+      renderReminders();
+      remText.value = '';
+      remTime.value = '';
+    });
+
+    remList.addEventListener('click', e => {
+      if (e.target.tagName === 'BUTTON') {
+        const id = +e.target.dataset.id;
+        reminders = reminders.filter(r => r.id !== id);
+        saveReminders();
+        renderReminders();
+      }
+    });
+
+    // Tải nhắc nhở khi mở trang
+    document.addEventListener('DOMContentLoaded', () => {
+      loadReminders();
+      renderReminders();
+    });
+
+    // Kiểm tra nhắc nhở mỗi giây
+    setInterval(() => {
+      const now = new Date();
+      const hhmm = now.toTimeString().slice(0,5);
+      reminders.forEach((r,i) => {
+        if (r.time === hhmm) {
+          alert(`🔔 Nhắc nhở: ${r.text}`);
+          reminders.splice(i,1);
+          saveReminders();
+          renderReminders();
+        }
+      });
+    }, 1000);
+
+    // --- Mã cho phần Hẹn giờ ---
+    let timerInterval = null;
+    let elapsed = 0; // tính bằng giây
+    const display = document.getElementById('timer-display');
+    const startBtn = document.getElementById('start-timer');
+    const pauseBtn = document.getElementById('pause-timer');
+    const resetBtn = document.getElementById('reset-timer');
+
+    function updateDisplay() {
+      const h = String(Math.floor(elapsed/3600)).padStart(2,'0');
+      const m = String(Math.floor((elapsed%3600)/60)).padStart(2,'0');
+      const s = String(elapsed%60).padStart(2,'0');
+      display.textContent = `${h}:${m}:${s}`;
+    }
+
+    startBtn.addEventListener('click', () => {
+      if (timerInterval) return;
+      timerInterval = setInterval(() => {
+        elapsed++;
+        updateDisplay();
+      }, 1000);
+    });
+
+    pauseBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    });
+
+    resetBtn.addEventListener('click', () => {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      elapsed = 0;
+      updateDisplay();
+    });
+  </script>
+</body>
+</html>

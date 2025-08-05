@@ -1,0 +1,353 @@
+.flashcard {
+  background: linear-gradient(135deg, #f8fafc 70%, #e3f2fd 100%);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18), 0 1.5px 8px rgba(79,195,247,0.08);
+  padding: 2.2rem 2rem 1.7rem 2rem;
+  margin: 18px;
+  width: 390px;
+  min-height: 210px;
+  word-break: break-word;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: box-shadow 0.25s, transform 0.18s;
+}
+.flashcard:hover {
+  box-shadow: 0 16px 48px rgba(44,62,80,0.22), 0 2px 12px rgba(79,195,247,0.18);
+  transform: translateY(-4px) scale(1.03);
+}
+.flashcard .question {
+  font-size: 1.15rem;
+  color: #263445;
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.5px;
+}
+.flashcard .answer {
+  font-size: 1.08rem;
+  color: #039be5;
+  font-weight: 500;
+  border-top: 2px solid #e53935;
+  padding-top: 1em;
+  margin-top: auto;
+  letter-spacing: 0.2px;
+  background: none;
+}
+.fa-minus {
+  top: 2.5%;
+  right: 3%;
+  position: absolute;
+  color: #1a1a1a;
+  font-size: 1.2em;
+  background: #fff;
+  border-radius: 50%;
+  padding: 2px 6px;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+  transition: 0.3s ease-out, background 0.2s;
+}
+.fa-minus:hover {
+  color: #e53935;
+  background: #ffeaea;
+}
+/* Header center alignment */
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+header {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  margin: 2rem auto 1.5rem auto;
+  max-width: 900px;
+  padding: 1.5rem 0 0.5rem 0;
+}
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #263445;
+  margin-bottom: 0.7em;
+  letter-spacing: 1px;
+}
+
+/* Navbar styles for all pages */
+.navbar {
+  background: #2d3e50;
+  padding: 0.7em 0.5em;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  border-radius: 10px;
+  width: 95%;
+  margin: 0 auto 0.5em auto;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 2.5em;
+}
+.navbar li {
+  margin: 0;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15em;
+  padding: 0.7em 2.2em;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.13);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+}
+.navbar a:hover {
+  background: #4fc3f7;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(79,195,247,0.15);
+}
+.navbar a.active {
+  background: #4fc3f7;
+  color: #222;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(79,195,247,0.18);
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.card, #create_card, #flashcards > div {
+  background: #fff;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(44,62,80,0.10);
+  transition: box-shadow 0.2s, transform 0.2s;
+  margin-bottom: 2rem;
+}
+.card:hover, #create_card:hover, #flashcards > div:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #263445;
+}
+textarea, input[type="text"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.25rem;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 1em;
+  background: #f7fbfc;
+  transition: border 0.2s;
+}
+textarea:focus, input[type="text"]:focus {
+  border-color: #4fc3f7;
+  outline: none;
+}
+button {
+  padding: 0.6rem 1.2rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #4fc3f7;
+  color: #222;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background: #039be5;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(3,155,229,0.15);
+}
+
+#flashcards {
+  margin-top: 2rem;
+}
+/* Navbar styles for all pages */
+.navbar {
+  background: #2d3e50;
+  padding: 0.5em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 1.5em;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em;
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.navbar a:hover,
+.navbar a.active {
+  background: #4fc3f7;
+  color: #222;
+}
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 1rem;
+  background: #f5f5f5;
+}
+
+button{
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background: whitesmoke;
+}
+
+button:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container{
+  width: 1280px;
+  margin: auto;
+}
+
+header{background-color: #fff;}
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 70px;
+  padding: 0 20px;
+  background: #fff;
+}
+
+#header button{
+  font-family: inherit;
+  border: 1px solid red;
+}
+
+#create_card{
+  display: none;
+  width: 370px;
+  margin:auto;
+  padding: 20px;
+  margin-top: 10px;
+  background: whitesmoke;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+}
+
+#create_card h2{
+  color: black;
+  text-align: center;
+}
+
+#create_card textarea{
+  width: 100%;
+  border-radius: 5px;
+  font-family: inherit;
+  border: 1px solid lightgray;
+  resize: none;
+}
+
+#create_card button{width: fit-content;}
+
+#flashcards {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  padding: 0px 10px;
+  gap: 10px;
+}
+
+.flashcard{
+  width: 370px;
+  height: 200px;
+  word-wrap: break-word;
+  margin: 10px; 
+  background:#fff;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+.flashcard h2{font-size: 1rem;}
+
+.fa-minus{
+  top: 3%;
+  right: 2%;
+  position: absolute;
+  color: #1a1a1a;
+  transition: 0.3s ease-out;
+}
+
+.fa-minus:hover{color: red;}
+
+@media(max-width:1280px){
+  .container{width: 100%;}
+}
+
+@media(max-width:768px){
+  .flashcard{margin: auto;}
+
+  .flashcard{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width:480px){
+  #header{
+    padding: 20px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #create_card{width: 95%;}
+
+  .flashcard{width: 100%;}
+
+}

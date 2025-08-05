@@ -1,0 +1,212 @@
+/* Card cho nhắc nhở */
+.reminder-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+  padding: 0.7rem 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Header center alignment */
+.header-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+header {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.08);
+  margin: 2rem auto 1.5rem auto;
+  max-width: 900px;
+  padding: 1.5rem 0 0.5rem 0;
+}
+h1 {
+  text-align: center;
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #263445;
+  margin-bottom: 0.7em;
+  letter-spacing: 1px;
+}
+
+/* Navbar styles for all pages */
+/* Navbar styles for all pages */
+.navbar {
+  background: #2d3e50;
+  padding: 0.7em 0.5em;
+  box-shadow: 0 2px 12px rgba(44,62,80,0.10);
+  border-radius: 10px;
+  width: 95%;
+  margin: 0 auto 0.5em auto;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 2.5em;
+}
+.navbar li {
+  margin: 0;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.15em;
+  padding: 0.7em 2.2em;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.13);
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+}
+.navbar a:hover {
+  background: #4fc3f7;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(79,195,247,0.15);
+}
+.navbar a.active {
+  background: #4fc3f7;
+  color: #222;
+  font-weight: 600;
+  box-shadow: 0 2px 12px rgba(79,195,247,0.18);
+}
+/* Navbar styles for all pages */
+.navbar {
+  background: #2d3e50;
+  padding: 0.5em 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+.navbar li {
+  margin: 0 1.5em;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1em;
+  padding: 0.3em 0.7em;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+.navbar a:hover,
+.navbar a.active {
+  background: #4fc3f7;
+  color: #222;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.card {
+  background: #fff;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(44,62,80,0.10);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(44,62,80,0.18);
+  transform: translateY(-2px) scale(1.01);
+}
+
+label {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 500;
+  color: #263445;
+}
+input[type="text"], input[type="time"] {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.25rem;
+  border: 1px solid #b0bec5;
+  border-radius: 6px;
+  font-size: 1em;
+  background: #f7fbfc;
+  transition: border 0.2s;
+}
+input[type="text"]:focus, input[type="time"]:focus {
+  border-color: #4fc3f7;
+  outline: none;
+}
+button {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #4fc3f7;
+  color: #222;
+  font-weight: 600;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover {
+  background: #039be5;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(3,155,229,0.15);
+}
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.btn-group button {
+  width: auto;
+  min-width: 80px;
+  margin: 0;
+  padding: 0.6rem 1.2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+ul li {
+  background: #e3f2fd;
+  margin: 0.5rem 0;
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+  box-shadow: 0 1px 4px rgba(44,62,80,0.07);
+}
+.timer-display {
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 1.2rem 0 0.7rem 0;
+  font-weight: 600;
+  color: #039be5;
+  letter-spacing: 2px;
+}
